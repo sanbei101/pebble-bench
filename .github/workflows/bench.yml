@@ -25,6 +25,12 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v6
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+          cache-dependency-path: 'go.sum'
+
       - name: Run tests and benchmarks
         uses: sanbei101/go-bench-pprof-action@v1
         with:
