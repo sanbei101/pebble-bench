@@ -44,8 +44,8 @@ func benchmarkPebble(b *testing.B, batchSize int) {
 	if err != nil {
 		b.Fatalf("Failed to open pebble: %v", err)
 	}
-	defer db.Close()
 	defer os.RemoveAll(PEBBLE_DIR)
+	defer db.Close()
 
 	b.ResetTimer()
 
